@@ -1,0 +1,39 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.10.RELEASE'
+    }
+    ext['thymeleaf.version'] = '3.0.3.RELEASE'
+    ext['thymeleaf-layout-dialect.version'] = '2.2.0'
+    repositories {
+        // mavenCentral()
+        maven {
+            url 'http://maven.aliyun.com/nexus/content/groups/public/'
+        }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'org.springframework.boot'
+
+group = 'cn.rockingwang.spring.boot.blog'
+version = '1.0.0'
+sourceCompatibility = 1.8
+
+repositories {
+    // mavenCentral()
+    maven {
+        url 'http://maven.aliyun.com/nexus/content/groups/public/'
+    }
+}
+
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-web')
+    //	Thymeleaf
+    compile('org.springframework.boot:spring-boot-starter-thymeleaf')
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+}
